@@ -11,6 +11,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebDemo", "WebApplication1\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SearchServiceDemon", "SearchServiceDemon\SearchServiceDemon.csproj", "{666748F2-7206-4AEC-8F79-68B61955A3F3}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{778698F0-00F0-458D-B5DD-E156D75D5DE5}"
+	ProjectSection(SolutionItems) = preProject
+		README.txt = README.txt
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

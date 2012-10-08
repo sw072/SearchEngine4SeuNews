@@ -101,7 +101,9 @@ namespace SearchServiceDemon
             StringBuilder strbuilder = new StringBuilder();
             foreach (DocUrlAbstractResult duar in result)
             {
-                strbuilder.Append(String.Format("<li><div><span><a href='{1}' target='_blank' class='link'>{0}<a></span><br/><span class='url'>{1}</span></div></li>", duar.title, duar.url));
+                strbuilder.Append(String.Format(
+                    "<li><div><span><a href='{2}' target='_blank' class='link'>{0}<a></span><br/><span class='abstract'>{1}</span><br/><span class='url'>{2}</span></div></li>",
+                    duar.title, duar.abst, duar.url));
             }
             if (strbuilder.Length == 0)
             {
@@ -120,10 +122,18 @@ namespace SearchServiceDemon
                 DocUrlAbstractResult duar = new DocUrlAbstractResult();
                 duar.title = page.title;
                 duar.url = page.url;
-                duar.abst = "";
+                duar.abst = GetAbstract(docId);
                 ret.Add(duar);
             }
             return ret;
+        }
+
+        static string GetAbstract(ObjectId docId)
+        {
+            MongodbAccess mongo = new MongodbAccess();
+            WebPage page = mongo.GetWebPageById(docId);
+            return page.title.Length < page.content.Length ?
+                page.content.Substring(page.title.Length, (page.content.Length - page.title.Length) > 150 ? 150 : (page.content.Length - page.title.Length)) : "";
         }
 
         static List<ObjectId> SortResult(List<ObjectId> docIds, List<string> query_words)

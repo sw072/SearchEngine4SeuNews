@@ -18,6 +18,10 @@
     {
         margin-bottom:5px;
     }
+    .abstract
+    {
+        font-size:9px;
+    }
     .editbox
     {
         background: #ffffff;
@@ -86,7 +90,9 @@
                 </ProgressTemplate>
             </asp:UpdateProgress>
             </div>
-            <asp:Literal ID="ltlResult" runat="server"></asp:Literal>
+            <div style="width:70%">
+                <asp:Literal ID="ltlResult" runat="server"></asp:Literal>
+            </div>
         </ContentTemplate>
     </asp:UpdatePanel>
 </form>
